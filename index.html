@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shoe Store</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container header-container">
+            <a href="#" class="logo">Shoe<span>Store</span></a>
+            <nav>
+                <ul>
+                    <li><a href="#" class="view-store">Store</a></li>
+                    <li><a href="#" class="view-admin">Admin</a></li>
+                </ul>
+            </nav>
+            <div>
+                <button class="cart-btn" id="cart-btn">Cart (<span id="cart-count">0</span>)</button>
+                <button class="admin-toggle">Toggle Admin</button>
+            </div>
+        </div>
+    </header>
+
+        <!-- Store View -->
+        <section class="products-section" id="store-view">
+            <div class="container">
+                <h2 class="section-title">Our Shoe Collection</h2>
+                
+                <div class="new-section">
+                    <h3 class="section-title">Men's Shoes</h3>
+                    <div class="products-grid" id="men-products-container">
+                        <!-- Men's products will be dynamically inserted here -->
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    <!-- Admin Panel -->
+    <section class="admin-panel" id="admin-view">
+        <div class="container">
+            <h2 class="section-title">Admin Panel</h2>
+            
+            <div class="admin-controls">
+                <h3>Add New Product</h3>
+                <form id="add-product-form" class="admin-form">
+                    <div class="form-group">
+                        <label for="product-name">Product Name</label>
+                        <input type="text" id="product-name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="product-price">Price ($)</label>
+                        <input type="number" id="product-price" min="0" step="0.01" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="product-category">Category</label>
+                        <select id="product-category" required>
+                            <option value="running">Running</option>
+                            <option value="casual">Casual</option>
+                            <option value="basketball">Basketball</option>
+                            <option value="formal">Formal</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="product-gender">Gender</label>
+                        <select id="product-gender" required>
+                            <option value="men">Men</option>
+                            <option value="women">Women</option>
+                            <option value="unisex">Unisex</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="product-image">Image URL</label>
+                        <input type="text" id="product-image" required>
+                    </div>
+                    <div class="form-group" style="grid-column: span 2;">
+                        <label for="product-description">Description</label>
+                        <textarea id="product-description" required></textarea>
+                    </div>
+                    <div class="form-actions">
+                        <button type="submit" class="admin-btn btn-primary">Add Product</button>
+                    </div>
+                </form>
+            </div>
+            
+            <div class="admin-products" id="admin-products-container">
+                <!-- Admin product cards will be inserted here -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Cart Modal -->
+    <div id="cart-modal" class="modal" style="display: none;">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Your Cart</h2>
+            <div id="cart-items"></div>
+            <div id="cart-total">Total: $0.00</div>
+            <button id="checkout-btn">Checkout</button>
+        </div>
+    </div>
+
+    <!-- Checkout Modal -->
+    <div id="checkout-modal" class="modal" style="display: none;">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Checkout</h2>
+            <form id="checkout-form">
+                <input type="text" placeholder="Name" required>
+                <input type="email" placeholder="Email" required>
+                <input type="text" placeholder="Address" required>
+                <div id="card-element"></div>
+                <button type="submit">Pay</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Cart Notification -->
+    <div class="cart-notification" id="cart-notification">
+        Product added to cart!
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
